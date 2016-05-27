@@ -1,6 +1,6 @@
 <?php
 
-namespace hkirsman;
+namespace HannesKirsman\GoogleSearchConsole;
 
 /**
  * @file
@@ -36,9 +36,10 @@ class SearchConsoleApi extends Google_Service_Webmasters {
   /**
    * SearchConsoleApi constructor.
    */
-  public function __construct() {
+  public function __construct($auth_json = 'service-account.json') {
     $this->applicationName = "SearchConsoleApi";
     $this->scopes = ['https://www.googleapis.com/auth/webmasters.readonly'];
+    $this->authJson = $auth_json;
   }
 
   /**
@@ -58,7 +59,6 @@ class SearchConsoleApi extends Google_Service_Webmasters {
    */
   public function initNewConnection() {
     if ($this->connectionInitTime === 0 || time() - $this->connectionInitTime > 3500) {
-      $this->authJson = \Drupal::config('search_console_api.auth')->get();
       $this->connectionInitTime = time();
       $this->client = new Google_Client();
       // Note that using json for "Service accounts" login is the prefered way

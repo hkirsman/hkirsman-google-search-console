@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "hkirsman\\SearchConsoleApi\\": "src"
+            "HannesKirsman\\GoogleSearchConsole\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-0": {
-            "hkirsman\\SearchConsoleApi\\": "tests"
+            "HannesKirsman\\GoogleSearchConsole\\Tests": "tests"
         }
     }
 }
