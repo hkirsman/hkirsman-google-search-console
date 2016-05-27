@@ -15,14 +15,12 @@ use Google_Service_Webmasters_ApiDimensionFilterGroup;
 
 /**
  * Class SearchConsoleApi.
- *
- * SportScheck specific wrapper Google Search Console.
- *
- * @package Drupal\spo_google_search_console
  */
 class SearchConsoleApi extends Google_Service_Webmasters {
 
   /**
+   * Instance of Google_Service_Webmasters_SearchAnalyticsQueryRequest.
+   *
    * @var Google_Service_Webmasters_SearchAnalyticsQueryRequest
    */
   public $query;
@@ -36,10 +34,10 @@ class SearchConsoleApi extends Google_Service_Webmasters {
   const WEBMASTERS_ROW_LIMIT = 5000;
 
   /**
-   * SportScheckWebmasters constructor.
+   * SearchConsoleApi constructor.
    */
   public function __construct() {
-    $this->applicationName = "SportScheckGoogleConsole";
+    $this->applicationName = "SearchConsoleApi";
     $this->scopes = ['https://www.googleapis.com/auth/webmasters.readonly'];
   }
 
@@ -47,10 +45,10 @@ class SearchConsoleApi extends Google_Service_Webmasters {
    * Get default options for queries.
    *
    * @return array
+   *   Search console query options.
    */
   public static function getDefaultOptions() {
     return [
-      'site_url' => 'http://www.sportscheck.com/',
       'dimensions' => ['date', 'device', 'page', 'query', 'country'],
     ];
   }
@@ -60,7 +58,7 @@ class SearchConsoleApi extends Google_Service_Webmasters {
    */
   public function initNewConnection() {
     if ($this->connectionInitTime === 0 || time() - $this->connectionInitTime > 3500) {
-      $this->authJson = \Drupal::config('spo_google_search_console.auth')->get();
+      $this->authJson = \Drupal::config('search_console_api.auth')->get();
       $this->connectionInitTime = time();
       $this->client = new Google_Client();
       // Note that using json for "Service accounts" login is the prefered way
@@ -124,7 +122,8 @@ class SearchConsoleApi extends Google_Service_Webmasters {
       // Ask Google for data.
       try {
         $result = $this->searchanalytics->query($options['site_url'], $this->query);
-      } catch (\Google_Service_Exception $e) {
+      }
+      catch (\Google_Service_Exception $e) {
         break;
       }
 
