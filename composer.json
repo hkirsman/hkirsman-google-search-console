@@ -1,0 +1,27 @@
+{
+    "name": "hkirsman/google-search-console",
+    "description": "Wrapper for google/apiclient to access and retrieve data from Google Search Console.",
+    "require": {
+        "google/apiclient": "^2.0.0@RC"
+    },
+    "authors": [
+        {
+            "name": "Hannes Kirsman",
+            "email": "hannes.kirsman@eesti.ee"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit":           "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "hkirsman\\SearchConsoleApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "hkirsman\\SearchConsoleApi\\": "tests"
+        }
+    }
+}
