@@ -1,6 +1,6 @@
 # hkirsman/google-search-console
 
-Wrapper for google/apiclient to access and retrieve data from Google Search Console using php. You can find this project in both https://packagist.org/packages/hkirsman/google-search-console and https://github.com/hkirsman/hkirsman-google-search-console
+Wrapper for google/apiclient to access and retrieve data from Google Search Console using PHP. You can find this project in both https://packagist.org/packages/hkirsman/google-search-console and https://github.com/hkirsman/hkirsman-google-search-console
 
 ## Installation (using Composer)
 
