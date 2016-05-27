@@ -1,6 +1,6 @@
 <?php
 
-namespace SearchConsoleApi;
+namespace hkirsman;
 
 /**
  * @file
