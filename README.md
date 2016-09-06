@@ -12,7 +12,7 @@ composer require hkirsman/google-search-console:dev-master
 
 Get key from https://console.developers.google.com. There you have to create a project if you don't have it already, enable the 'Google Search Console API' and create 'Service account key' (json format). Add this keyfile to your project root or define custom path like this:
 ```
-$searchConsole = SearchConsoleApi('/foo/bar/service-account.json');
+$searchConsole = new SearchConsoleApi('/foo/bar/service-account.json');
 ```
 instead of just
 ```
